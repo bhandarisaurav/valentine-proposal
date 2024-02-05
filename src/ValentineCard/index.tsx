@@ -16,7 +16,7 @@ const ValentineCard: React.FC = () => {
     ]
 
     const getCurrentAudioPath = (index: number) => {
-        return "/src/assets/" + audioPaths[index]
+        return "audio/" + audioPaths[index]
     }
 
     const noClicked = () => {
