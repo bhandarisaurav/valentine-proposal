@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import ReactAudioPlayer from 'react-audio-player'
 import { ButtonProps } from './_types'
+import { isMobile } from 'react-device-detect';
 
 const NoButton: React.FC<ButtonProps> = (props) => {
 
@@ -52,7 +53,7 @@ const NoButton: React.FC<ButtonProps> = (props) => {
 
     const onMouseOver = () => {
         const button = document.querySelectorAll('button')[1]
-        if (button && canMove) {
+        if (button && canMove && !isMobile) {
             button.style.position = 'absolute'
             button.style.left = `${Math.random() * 100}rem`
             button.style.top = `${Math.random() * 100}rem`
