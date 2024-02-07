@@ -18,7 +18,7 @@ const NoButton: React.FC<ButtonProps> = (props) => {
         } else {
             intervalId = setInterval(() => {
                 setCanMove(true);
-            }, 1000);
+            }, 2000);
         }
 
         return () => clearInterval(intervalId); // Cleanup function to clear the interval when the component unmounts or when the dependency changes
