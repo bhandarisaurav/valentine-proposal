@@ -6,10 +6,15 @@ const YesButton: React.FC<ButtonProps> = (props) => {
     return (
         <button style={
             {
-                height: `${noCounter + 1 * 2}rem`,
-                fontSize: `${noCounter + 1 * 2}rem`,
+                fontSize: `${noCounter + 1.25 * 2 * 0.8}rem`,
             }
         }
+            onClick={() => {
+                if (props.handleYesClick) {
+                    console.log('yes clicked')
+                    props.handleYesClick(true)
+                }
+            }}
             className={`inline-flex items-center h-14 px-5 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800`}>
             <span>Yes</span>
             <svg className="w-6 h-6 ml-3" viewBox="0 0 24 24" fill="red">

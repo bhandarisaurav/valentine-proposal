@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Animated Images with JavaScript</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+            rel="stylesheet">
+        <style>
+  .image-block {
+    display: none;
+  }
+
+  .image-block img {
+    transition: transform 0.3s ease;
+  }
+
+  .image-block:hover img {
+    transform: translateY(-5px);
+  }
+
+  .image-block:active img {
+    transform: translateY(5px);
+  }
+
+  .image-tooltip {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .image-block:hover .image-tooltip {
+    opacity: 1;
+  }
+</style>
+    </head>
+    <body class="bg-gray-100">
+
+        <div class="container mx-auto py-8">
+            <div class="grid grid-cols-3 gap-8" id="image-container">
+                <!-- Images will be dynamically added here -->
+                <div
+                    class="image-block relative bg-white overflow-hidden rounded-md shadow-md transition-transform transform hover:translate-y-1 active:translate-y-0"><img
+                        src="https://picsum.photos/150/150" alt="Image 1"
+                        class="w-full h-auto"><div
+                        class="image-tooltip absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-75 text-white px-4 py-2 rounded-md opacity-0 transition-opacity">Tooltip
+                        for Image 1</div></div>
+            </div>
+        </div>
+
+        <script>
+  // Define image URLs
+  const imageUrls = [
+    "image.jpg",
+    "image.jpg",
+    "image.jpg",
+    "image.jpg",
+    "image.jpg",
+    "image.jpg",
+    "image.jpg",
+    "image.jpg",
+    "image.jpg",
+    "image.jpg",
+    "image.jpg",
+    "image.jpg",
+    "image.jpg",
+    // Add more image URLs as needed
+  ];
+
+  // Function to create image elements and append them to the container
+  function showImagesWithDelay(container, urls, delay) {
+    urls.forEach((url, index) => {
+      setTimeout(() => {
+        const imageBlock = document.createElement("div");
+        imageBlock.classList.add("relative", "bg-white", "overflow-hidden", "rounded-md", "shadow-md", "transition-transform", "transform", "hover:translate-y-1", "active:translate-y-0");
+        
+        const img = document.createElement("img");
+        img.src = url;
+        img.alt = `Image ${index + 1}`;
+        img.classList.add("w-full", "h-auto");
+
+        const tooltip = document.createElement("div");
+        tooltip.textContent = `Tooltip for Image ${index + 1}`;
+        tooltip.classList.add("image-tooltip", "absolute", "bottom-0", "left-1/2", "transform", "-translate-x-1/2", "bg-black", "bg-opacity-75", "text-white", "px-4", "py-2", "rounded-md", "opacity-0", "transition-opacity");
+
+        imageBlock.appendChild(img);
+        imageBlock.appendChild(tooltip);
+
+        container.appendChild(imageBlock);
+        console.log(imageBlock);
+      }, (index + 1) * delay); // Adding 1 to index to avoid showing the first image immediately
+    });
+  }
+
+  // Call the function to display images with a delay of 1 second between each image
+  const container = document.getElementById("image-container");
+  showImagesWithDelay(container, imageUrls, 500);
+</script>
+
+    </body>
+</html>

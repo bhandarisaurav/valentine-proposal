@@ -5,6 +5,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Box from './3d';
+import SheSaidYes from './sheSaidYes';
 
 const router = createBrowserRouter([
   // {
@@ -21,6 +22,9 @@ const router = createBrowserRouter([
   }, {
     path: "/3d",
     Component: Box,
+  }, {
+    path: "/she-said-yes",
+    Component: SheSaidYes
   }
 ]);
 

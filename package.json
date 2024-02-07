@@ -16,6 +16,7 @@
     "@react-three/fiber": "^8.15.16",
     "@types/three": "^0.161.2",
     "antd": "^5.14.0",
+    "canvas-confetti": "^1.9.2",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.3",
     "react": "^18.2.0",
@@ -27,6 +28,7 @@
     "three": "^0.161.0"
   },
   "devDependencies": {
+    "@types/canvas-confetti": "^1.6.4",
     "@types/node": "^20.11.16",
     "@types/react": "^18.2.53",
     "@types/react-dom": "^18.2.18",
